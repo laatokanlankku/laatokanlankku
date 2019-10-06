@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+const contentful = require("contentful");
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const CONTENTFUL_SPACE_ID = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
+  const CONTENTFUL_DELIVERY_TOKEN =
+    process.env.REACT_APP_CONTENTFUL_DELIVERY_TOKEN;
+
+  const client = contentful.createClient({
+    space: CONTENTFUL_SPACE_ID,
+    accessToken: CONTENTFUL_DELIVERY_TOKEN
+  });
+
+  client
+    .getEntries({
+      locale: "ru-RU"
+    })
+    .then(entry => console.log(entry))
+    .catch(err => console.log(err));
+
+  return <div></div>;
+};
 
 export default App;
