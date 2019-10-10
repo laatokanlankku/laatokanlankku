@@ -11,15 +11,9 @@ import {
 } from '@material-ui/core';
 import { Mail, Inbox, ChevronLeft } from '@material-ui/icons';
 import styles from './Sidebar.style';
-import useAxios from '../../../../services/hooks/useAxios';
 
 const Sidebar = props => {
   const { classes, isOpen, setIsOpen } = props;
-
-  // const [response, isLoading, isError, request] = useAxios();
-  // useEffect(() => {
-  //   request({ 'sys.id[in]': '6c9HZWlN2VUpUHfak2OA1v' });
-  // }, []);
 
   return (
     <Drawer
