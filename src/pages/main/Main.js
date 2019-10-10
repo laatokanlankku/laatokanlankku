@@ -1,21 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
-import video from '../../assets/videos/DJI_0317_480p_24fps_Morpheus_Mavic_Air.mp4';
+import { Grid } from '@material-ui/core';
 import styles from './Main.style';
 
 // sections
 import Hero from './sections/hero/Hero';
+import Intro from './sections/intro/Intro';
 
 const Main = props => {
-  const { classes, contentful } = props;
+  const { classes, contentful, locale } = props;
+
+  const sharedProps = {
+    contentful,
+    locale,
+  };
 
   return (
     <Grid container>
       <Hero contentful={contentful} />
-      <Typography variant="body1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, labore.
-      </Typography>
+      <Intro {...sharedProps} />
     </Grid>
   );
 };
