@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core';
+import useContentful from './services/useContentful';
+import Dashboard from './components/Dashboard/Dashboard';
 
-const contentful = require('contentful');
+// Pages
+import Main from './pages/main/Main';
 
 const App = () => {
-  /**
-   *
-   * Environment variable names must match those in the Netlify settings
-   * docs: https://www.netlify.com/docs/continuous-deployment/#environment-variables
-   *
-   */
-  const CONTENTFUL_SPACE_ID = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
-  const CONTENTFUL_DELIVERY_TOKEN = process.env.REACT_APP_CONTENTFUL_DELIVERY_TOKEN;
+  const theme = createMuiTheme();
+  const [contentful, isLoading, isError, request] = useContentful();
 
-  const client = contentful.createClient({
-    space: CONTENTFUL_SPACE_ID,
-    accessToken: CONTENTFUL_DELIVERY_TOKEN,
-  });
-
-  client
-    .getEntries({
-      locale: 'ru-RU',
-    })
-    .then(entry => console.log(entry))
-    .catch(err => console.log(err));
-
-  return <div></div>;
+  return (
+    <div>
+      {!contentful ? (
+        <div>Loading...</div>
+      ) : (
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Switch>
+              <Dashboard contentful={contentful}>
+                <Route exact path="/" component={() => <Main contentful={contentful} />} />
+              </Dashboard>
+            </Switch>
+          </BrowserRouter>
+        </ThemeProvider>
+      )}
+    </div>
+  );
 };
 
 export default App;
