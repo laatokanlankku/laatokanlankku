@@ -1,4 +1,6 @@
-const drawerWidth = 128;
+import { themeCarelia, themeTimber } from '../../../../constants/colors';
+
+const drawerWidth = 256;
 
 export default theme => ({
   appBar: {
@@ -7,7 +9,8 @@ export default theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     color: 'black',
-    backgroundColor: 'transparent',
+    backgroundColor: themeCarelia,
+    transition: 'background-color 1s',
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -17,16 +20,24 @@ export default theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  appBarVisibility: {
+    backgroundColor: 'transparent',
+    transition: 'background-color 1s',
   },
   hide: {
     display: 'none',
   },
   toolbar: {
     display: 'flex',
+    flexGrow: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    margin: 'auto',
+    marginLeft: '-36px',
+  },
+  title: {
+    color: themeTimber,
+  },
+  subtitle: {
+    color: themeTimber,
   },
 });

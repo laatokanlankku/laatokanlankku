@@ -10,6 +10,7 @@ export default theme => ({
     },
   },
   gridItem: {
-    display: 'flex',
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
   },
 });

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core';
 import useContentful from './services/useContentful';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 import setLocale from './redux/actions/setLocale';
 
 // Pages
@@ -12,13 +12,18 @@ import Main from './pages/main/Main';
 
 const App = props => {
   const { locale } = props;
-  const theme = createMuiTheme();
+  const theme = createMuiTheme({
+    typography: {
+      fontFamily: ['Montserrat', 'sans-serif'].join(','),
+    },
+  });
   const [contentful, isLoading, isError, request] = useContentful();
 
   const sharedProps = {
     contentful,
     locale,
   };
+
   return (
     <div>
       {!contentful ? (
@@ -27,7 +32,7 @@ const App = props => {
         <ThemeProvider theme={theme}>
           <BrowserRouter>
             <Switch>
-              <Dashboard contentful={contentful}>
+              <Dashboard {...sharedProps}>
                 <Route exact path="/" component={() => <Main {...sharedProps} />} />
               </Dashboard>
             </Switch>

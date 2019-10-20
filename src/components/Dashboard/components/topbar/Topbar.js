@@ -7,13 +7,16 @@ import { Menu } from '@material-ui/icons';
 import styles from './Topbar.style';
 
 const TopBar = props => {
-  const { classes, isOpen, setIsOpen, contentful } = props;
+  const { classes, isOpen, setIsOpen, contentful, isScroll } = props;
+
+  const content = contentful.items.find(item => item.sys.id === 'BKailNTsl6XpTUuKrMbp4');
   return (
     <AppBar
       position="fixed"
       elevation={0}
       className={clsx(classes.appBar, {
         [classes.appBarShift]: isOpen,
+        [classes.appBarVisibility]: !isScroll,
       })}
     >
       <Toolbar>
@@ -22,15 +25,17 @@ const TopBar = props => {
           aria-label="open drawer"
           onClick={() => setIsOpen(!isOpen)}
           edge="start"
-          className={clsx(classes.menuButton, isOpen && classes.hide)}
+          className={clsx(isOpen && classes.hide)}
         >
           <Menu />
         </IconButton>
         <div className={classes.toolbar}>
-          <Typography variant="h6" noWrap>
-            {contentful.items[0].fields.title['en-US']}
+          <Typography variant="h6" noWrap className={classes.title}>
+            {content.fields.title['en-US']}
           </Typography>
-          <Typography variant="caption">{contentful.items[0].fields.subtitle['en-US']}</Typography>
+          <Typography variant="caption" className={classes.subtitle}>
+            {content.fields.subtitle['en-US']}
+          </Typography>
         </div>
       </Toolbar>
     </AppBar>

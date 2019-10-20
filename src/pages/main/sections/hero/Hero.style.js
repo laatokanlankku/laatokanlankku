@@ -1,3 +1,5 @@
+import { themeTimber } from '../../../../constants/colors';
+
 export default theme => ({
   root: {
     position: 'relative',
@@ -23,6 +25,20 @@ export default theme => ({
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: theme.spacing(2),
+  },
+  container: {
+    paddingRight: theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      paddingRight: theme.spacing(8),
+      paddingLeft: theme.spacing(8),
+    },
+  },
+  heading: {
+    fontWeight: 400,
+    color: 'white',
+  },
+  description: {
+    color: 'white',
   },
 });

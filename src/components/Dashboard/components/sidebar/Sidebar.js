@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 import {
   Drawer,
@@ -9,11 +10,14 @@ import {
   ListItemText,
   ListItemIcon,
 } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
 import { Mail, Inbox, ChevronLeft } from '@material-ui/icons';
 import styles from './Sidebar.style';
 
 const Sidebar = props => {
-  const { classes, isOpen, setIsOpen } = props;
+  const { classes, isOpen, setIsOpen, contentful, locale } = props;
+
+  const content = contentful.items.filter(item => item.sys.contentType.sys.id === 'mainmenu');
 
   return (
     <Drawer
@@ -34,14 +38,16 @@ const Sidebar = props => {
       </div>
       <Divider />
       <List>
-        {/* {!response
-          ? null
-          : Object.keys(response.items[0].fields).map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <Inbox /> : <Mail />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))} */}
+        {content.map(item => (
+          <Link to="/" key={item.sys.id} className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <Icon className={classes.icon}>{item.fields.icon['en-US']}</Icon>
+              </ListItemIcon>
+              <ListItemText>{item.fields.option[locale]}</ListItemText>
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </Drawer>
   );

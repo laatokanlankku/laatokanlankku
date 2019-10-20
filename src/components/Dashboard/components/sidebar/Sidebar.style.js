@@ -1,4 +1,6 @@
-const drawerWidth = 128;
+import { themeTimber } from '../../../../constants/colors';
+
+const drawerWidth = 256;
 
 export default theme => ({
   drawer: {
@@ -30,5 +32,12 @@ export default theme => ({
   },
   text: {
     // color: blue.A700,
+  },
+  link: {
+    color: 'inherit',
+    textDecoration: 'none',
+  },
+  icon: {
+    color: themeTimber,
   },
 });
