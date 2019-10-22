@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import { ChevronLeft, ExpandLess, ExpandMore, Language, Translate } from '@material-ui/icons';
+import { FormattedMessage } from 'react-intl';
 import styles from './Sidebar.style';
 
 const Sidebar = props => {
@@ -60,7 +61,10 @@ const Sidebar = props => {
           <ListItemIcon className={classes.icon}>
             <Language />
           </ListItemIcon>
-          <ListItemText>Kielivalinta</ListItemText>
+          <ListItemText>
+            {' '}
+            <FormattedMessage id="languageSelection" defaultMessage="Kielivalinta" />
+          </ListItemText>
           {isLanguageOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={isLanguageOpen && isOpen} timeout="auto" unmountOnExit>

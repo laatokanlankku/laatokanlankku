@@ -3,9 +3,12 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core';
+import { IntlProvider } from 'react-intl';
 import useContentful from './services/useContentful';
 import Dashboard from './components/dashboard/Dashboard';
 import setLocale from './redux/actions/setLocale';
+import fi from './locale/fi';
+import ru from './locale/ru';
 
 // Pages
 import Main from './pages/main/Main';
@@ -22,6 +25,17 @@ const App = props => {
 
   const onEnterHandler = () => window.scrollTo(0, 0);
 
+  const getLocaleFile = i18n => {
+    switch (i18n) {
+      case 'en-US':
+        return fi;
+      case 'ru-RU':
+        return ru;
+      default:
+        break;
+    }
+  };
+
   const sharedProps = {
     contentful,
     locale,
@@ -32,20 +46,22 @@ const App = props => {
       {!contentful ? (
         <div>Loading...</div>
       ) : (
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <Switch>
-              <Dashboard {...sharedProps}>
-                <Route exact path="/" component={() => <Main {...sharedProps} />} />
-                {/* <Route
+        <IntlProvider locale={locale} messages={getLocaleFile(locale)}>
+          <ThemeProvider theme={theme}>
+            <BrowserRouter>
+              <Switch>
+                <Dashboard {...sharedProps}>
+                  <Route exact path="/" component={() => <Main {...sharedProps} />} />
+                  {/* <Route
                   path="/member/:id"
                   component={() => <Member {...sharedProps} />}
                   onEnter={() => onEnterHandler()}
                 /> */}
-              </Dashboard>
-            </Switch>
-          </BrowserRouter>
-        </ThemeProvider>
+                </Dashboard>
+              </Switch>
+            </BrowserRouter>
+          </ThemeProvider>
+        </IntlProvider>
       )}
     </div>
   );
