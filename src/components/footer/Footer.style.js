@@ -10,25 +10,16 @@ export default theme => ({
     left: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  img: {
-    float: 'left',
-    width: 'auto',
-    height: '128px',
-    margin: '6px 16px 0 0',
-  },
   container: {
     zIndex: 2,
-  },
-  listItem: {
-    alignItems: 'flex-start',
-    paddingLeft: 0,
-  },
-  listItemIcon: {
-    minWidth: 0,
-    paddingRight: theme.spacing(1),
-  },
-  listItemText: {
-    margin: 0,
+    paddingTop: theme.spacing(4),
+    paddingRight: theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      paddingTop: theme.spacing(8),
+      paddingRight: theme.spacing(8),
+      paddingLeft: theme.spacing(8),
+    },
   },
 });
 
@@ -41,4 +32,5 @@ export const StyledGrid = styled(Grid).attrs({
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 32px;
+  padding-bottom: 32px;
 `;

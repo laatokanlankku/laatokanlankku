@@ -12,7 +12,9 @@ const Intro = props => {
     <Container maxWidth="lg" className={classes.container}>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h6">{content.fields.title[locale]}</Typography>
+          <Typography variant="subtitle1" className={classes.typography}>
+            {content.fields.title[locale]}
+          </Typography>
           <Typography variant="h5" gutterBottom>
             {content.fields.heading[locale]}
           </Typography>

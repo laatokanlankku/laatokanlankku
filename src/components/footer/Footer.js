@@ -1,10 +1,11 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import styles, { StyledGrid } from './Footer.style';
-import image from '../../assets/images/logo.jpg';
+import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Certificates from './components/certificates/Certificates';
+import Links from './components/links/Links';
 
 const Footer = props => {
   const { classes, contentful, locale } = props;
@@ -20,16 +21,11 @@ const Footer = props => {
     <StyledGrid background={content.fields.background['en-US'].fields.file['en-US'].url}>
       <div className={classes.overlay} />
       <Container maxWidth="lg" className={classes.container}>
-        <Grid container>
-          <Grid item xs={12} sm={4} md={4}>
-            <Typography variant="h6" gutterBottom>
-              {content.fields.heading[locale]}
-            </Typography>
-            <img src={image} alt="" className={classes.img} />
-            <Typography variant="body2">{content.fields.description[locale]}</Typography>
-          </Grid>
+        <Grid container spacing={4}>
+          <About {...forwardProps} content={content} />
           <Contact {...forwardProps} content={content} />
-          <Certificates {...forwardProps} />
+          <Certificates {...forwardProps} content={content} />
+          <Links {...forwardProps} content={content} />
         </Grid>
       </Container>
     </StyledGrid>

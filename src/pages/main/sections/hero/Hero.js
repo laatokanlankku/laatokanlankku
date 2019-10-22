@@ -4,7 +4,7 @@ import { Typography, Container, Grid } from '@material-ui/core';
 import styles from './Hero.style';
 
 const Hero = props => {
-  const { classes, contentful } = props;
+  const { classes, contentful, locale } = props;
 
   const content = contentful.items.find(item => item.sys.id === '7BUc3DDSVYk5fJOtsjjC9F');
   return (
@@ -23,10 +23,10 @@ const Hero = props => {
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="h4" gutterBottom className={classes.heading}>
-                {content.fields.heading['en-US']}
+                {content.fields.heading[locale]}
               </Typography>
               <Typography variant="body1" className={classes.description}>
-                {content.fields.description['en-US']}
+                {content.fields.description[locale]}
               </Typography>
             </Grid>
           </Grid>

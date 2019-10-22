@@ -1,4 +1,11 @@
+import { themeTimber } from '../../../../constants/colors';
+
 export default theme => ({
+  typography: {
+    fontWeight: 600,
+    textTransform: 'uppercase',
+    color: themeTimber,
+  },
   container: {
     paddingTop: theme.spacing(4),
     paddingRight: theme.spacing(4),

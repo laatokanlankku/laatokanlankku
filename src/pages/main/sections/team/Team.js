@@ -18,14 +18,16 @@ const Team = props => {
     <Container maxWidth="lg" className={classes.container}>
       <Grid container>
         <Grid item xs={12} className={classes.gridItem}>
-          <Typography variant="h6">{content.fields.title[locale]}</Typography>
-          <Typography variant="h5">{content.fields.heading[locale]}</Typography>
+          <Typography variant="subtitle1" className={classes.typography}>
+            {content.fields.title[locale]}
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            {content.fields.heading[locale]}
+          </Typography>
           <Typography variant="body1">{content.fields.description[locale]}</Typography>
         </Grid>
-        <Grid item xs={12} className={classes.overflow}>
-          <MemberList {...forwardProps} />
-        </Grid>
       </Grid>
+      <MemberList {...forwardProps} />
     </Container>
   );
 };

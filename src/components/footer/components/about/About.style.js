@@ -11,16 +11,19 @@ export default theme => ({
       paddingLeft: theme.spacing(8),
     },
   },
-  gridItem: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  overflow: {
-    overflowX: 'hidden',
-  },
   typography: {
-    fontWeight: 600,
     textTransform: 'uppercase',
+    fontSize: '1rem',
+    fontWeight: '600',
     color: themeTimber,
+  },
+  description: {
+    color: 'white',
+  },
+  img: {
+    float: 'left',
+    width: 'auto',
+    height: '128px',
+    margin: '6px 16px 0 0',
   },
 });

@@ -1,3 +1,5 @@
+import { themeTimber } from '../../../../constants/colors';
+
 export default theme => ({
   container: {
     paddingTop: theme.spacing(4),
@@ -11,5 +13,10 @@ export default theme => ({
   },
   gridItem: {
     display: 'flex',
+  },
+  typography: {
+    fontWeight: 600,
+    textTransform: 'uppercase',
+    color: themeTimber,
   },
 });

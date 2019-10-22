@@ -40,4 +40,7 @@ export default theme => ({
   icon: {
     color: themeTimber,
   },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
 });

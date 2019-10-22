@@ -9,6 +9,7 @@ import setLocale from './redux/actions/setLocale';
 
 // Pages
 import Main from './pages/main/Main';
+import Member from './pages/member/Member';
 
 const App = props => {
   const { locale } = props;
@@ -18,6 +19,8 @@ const App = props => {
     },
   });
   const [contentful, isLoading, isError, request] = useContentful();
+
+  const onEnterHandler = () => window.scrollTo(0, 0);
 
   const sharedProps = {
     contentful,
@@ -34,6 +37,11 @@ const App = props => {
             <Switch>
               <Dashboard {...sharedProps}>
                 <Route exact path="/" component={() => <Main {...sharedProps} />} />
+                {/* <Route
+                  path="/member/:id"
+                  component={() => <Member {...sharedProps} />}
+                  onEnter={() => onEnterHandler()}
+                /> */}
               </Dashboard>
             </Switch>
           </BrowserRouter>

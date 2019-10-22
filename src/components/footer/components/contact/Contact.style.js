@@ -1,4 +1,4 @@
-import { themeAmber, themeTimber } from '../../../../constants/colors';
+import { themeTimber } from '../../../../constants/colors';
 
 export default theme => ({
   listItem: {
@@ -16,6 +16,8 @@ export default theme => ({
   },
   typography: {
     textTransform: 'uppercase',
+    fontSize: '1rem',
+    fontWeight: '600',
     color: themeTimber,
   },
 });

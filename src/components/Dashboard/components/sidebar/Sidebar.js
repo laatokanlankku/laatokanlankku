@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 import {
   Drawer,
   Divider,
+  Collapse,
   IconButton,
   List,
   ListItem,
@@ -11,13 +12,20 @@ import {
   ListItemIcon,
 } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
-import { Mail, Inbox, ChevronLeft } from '@material-ui/icons';
+import { ChevronLeft, ExpandLess, ExpandMore, Language, Translate } from '@material-ui/icons';
 import styles from './Sidebar.style';
 
 const Sidebar = props => {
-  const { classes, isOpen, setIsOpen, contentful, locale } = props;
+  const { classes, isOpen, setIsOpen, contentful, locale, setLocale } = props;
 
   const content = contentful.items.filter(item => item.sys.contentType.sys.id === 'mainmenu');
+
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+
+  const closeHandler = () => {
+    setIsOpen(false);
+    setIsLanguageOpen(false);
+  };
 
   return (
     <Drawer
@@ -32,7 +40,7 @@ const Sidebar = props => {
       }}
     >
       <div className={classes.drawerHeader}>
-        <IconButton onClick={() => setIsOpen(false)}>
+        <IconButton onClick={() => closeHandler()}>
           <ChevronLeft />
         </IconButton>
       </div>
@@ -48,6 +56,29 @@ const Sidebar = props => {
             </ListItem>
           </Link>
         ))}
+        <ListItem button onClick={() => setIsLanguageOpen(!isLanguageOpen)}>
+          <ListItemIcon className={classes.icon}>
+            <Language />
+          </ListItemIcon>
+          <ListItemText>Kielivalinta</ListItemText>
+          {isLanguageOpen ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={isLanguageOpen && isOpen} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem button onClick={() => setLocale('en-US')} className={classes.nested}>
+              <ListItemIcon className={classes.icon}>
+                <Translate />
+              </ListItemIcon>
+              <ListItemText>Suomi</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => setLocale('ru-RU')} className={classes.nested}>
+              <ListItemIcon className={classes.icon}>
+                <Translate />
+              </ListItemIcon>
+              <ListItemText>Русский</ListItemText>
+            </ListItem>
+          </List>
+        </Collapse>
       </List>
     </Drawer>
   );

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import { CssBaseline, ClickAwayListener } from '@material-ui/core';
+import setLocale from '../../redux/actions/setLocale';
 import styles from './Dashboard.style';
 import useScrollPosition from '../../utils/hooks/useScrollPosition';
 import TopBar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 
 const Dashboard = props => {
-  const { classes, children, contentful, locale } = props;
+  const { classes, children, contentful, locale, setLocale } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [position, isScroll] = useScrollPosition();
 
@@ -18,6 +20,7 @@ const Dashboard = props => {
     contentful,
     locale,
     isScroll,
+    setLocale,
   };
 
   return (
@@ -39,4 +42,13 @@ const Dashboard = props => {
   );
 };
 
-export default withStyles(styles)(Dashboard);
+const mapDispatchToProps = dispatch => {
+  return {
+    setLocale: payload => dispatch(setLocale(payload)),
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withStyles(styles)(Dashboard));

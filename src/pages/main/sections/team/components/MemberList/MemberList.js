@@ -12,7 +12,7 @@ const MemberList = props => {
   return (
     <Grid container justify="center" spacing={4} className={classes.container}>
       {content.map(item => (
-        <MemberListItem key={item.sys.id} data={item.fields} locale={locale} />
+        <MemberListItem key={item.sys.id} data={item.fields} locale={locale} id={item.sys.id} />
       ))}
     </Grid>
   );

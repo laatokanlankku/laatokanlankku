@@ -14,7 +14,7 @@ import styles from './Contact.style';
 const Contact = props => {
   const { classes, content, locale } = props;
   return (
-    <Grid item xs={12} sm={4} md={4}>
+    <Grid item xs={12} sm={6} md={3}>
       <Typography variant="h6" gutterBottom className={classes.typography}>
         {content.fields.heading2[locale]}
       </Typography>
@@ -40,7 +40,7 @@ const Contact = props => {
             <br />
             {content.fields.presence[locale]}
             <br />
-            {content.fields.time[locale]}
+            {content.fields.time['en-US']}
           </ListItemText>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -48,7 +48,7 @@ const Contact = props => {
             <Email />
           </ListItemIcon>
           <ListItemText disableTypography className={classes.listItemText}>
-            {content.fields.email[locale]}
+            {content.fields.email['en-US']}
           </ListItemText>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -56,7 +56,7 @@ const Contact = props => {
             <LocalPhone />
           </ListItemIcon>
           <ListItemText disableTypography className={classes.listItemText}>
-            {content.fields.telephone[locale]}
+            {content.fields.telephone['en-US']}
           </ListItemText>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -64,7 +64,7 @@ const Contact = props => {
             <Print />
           </ListItemIcon>
           <ListItemText disableTypography className={classes.listItemText}>
-            {content.fields.fax[locale]}
+            {content.fields.fax['en-US']}
           </ListItemText>
         </ListItem>
         <ListItem className={classes.listItem}>

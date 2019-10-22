@@ -18,6 +18,9 @@ const ServiceListItem = props => {
           }
           title={data.title[locale]}
           subheader={data.subtitle[locale]}
+          classes={{
+            title: classes.typography,
+          }}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
