@@ -32,7 +32,7 @@ export default theme => ({
     flexGrow: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    marginLeft: '-36px',
+    marginLeft: '-24px',
   },
   title: {
     color: themeTimber,
