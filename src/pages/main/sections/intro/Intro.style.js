@@ -19,4 +19,7 @@ export default theme => ({
     textTransform: 'uppercase',
     color: themeTimber,
   },
+  typographyHighlight: {
+    fontWeight: 600,
+  },
 });
