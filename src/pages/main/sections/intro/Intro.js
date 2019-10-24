@@ -11,7 +11,7 @@ const Intro = props => {
   return (
     <Container maxWidth="lg" className={classes.container}>
       <Grid container>
-        <Grid item xs={12} sm={4}>
+        {/* <Grid item xs={12} sm={4}>
           <img
             src={content.fields.photo['en-US'].fields.file['en-US'].url}
             alt={content.fields.photo['en-US'].fields.title[locale]}
@@ -22,8 +22,8 @@ const Intro = props => {
           <Typography variant="subtitle1" gutterBottom className={classes.typographyHighlight}>
             {content.fields.photo['en-US'].fields.title[locale]}
           </Typography>
-        </Grid>
-        <Grid item xs={12} sm={8}>
+        </Grid> */}
+        <Grid item xs={12}>
           <Typography variant="subtitle1" className={classes.typography}>
             {content.fields.title[locale]}
           </Typography>

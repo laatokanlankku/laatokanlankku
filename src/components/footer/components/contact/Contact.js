@@ -39,8 +39,8 @@ const Contact = props => {
             {content.fields.office[locale]}
             <br />
             {content.fields.presence[locale]}
-            <br />
-            {content.fields.time['en-US']}
+            {/* <br />
+            {content.fields.time['en-US']} */}
           </ListItemText>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -59,14 +59,14 @@ const Contact = props => {
             {content.fields.telephone['en-US']}
           </ListItemText>
         </ListItem>
-        <ListItem className={classes.listItem}>
+        {/* <ListItem className={classes.listItem}>
           <ListItemIcon className={classes.listItemIcon}>
             <Print />
           </ListItemIcon>
           <ListItemText disableTypography className={classes.listItemText}>
             {content.fields.fax['en-US']}
           </ListItemText>
-        </ListItem>
+        </ListItem> */}
         <ListItem className={classes.listItem}>
           <ListItemIcon className={classes.listItemIcon}>
             <BusinessCenter />
