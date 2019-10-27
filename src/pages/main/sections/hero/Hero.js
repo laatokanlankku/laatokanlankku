@@ -16,7 +16,14 @@ const Hero = props => {
         poster={content.fields.poster['en-US'].fields.file['en-US'].url}
         className={classes.video}
       >
-        <source src={content.fields.trailer['en-US'].fields.file['en-US'].url} type="video/mp4" />
+        <source
+          src={content.fields.trailer['en-US'][0].fields.file['en-US'].url}
+          type="video/mp4"
+        />
+        <source
+          src={content.fields.trailer['en-US'][1].fields.file['en-US'].url}
+          type="video/ogg"
+        />
       </video>
       <div className={classes.overlay}>
         <Container maxWidth="lg" className={classes.container}>

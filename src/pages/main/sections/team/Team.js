@@ -16,7 +16,7 @@ const Team = props => {
 
   return (
     <Container maxWidth="lg" className={classes.container}>
-      <Grid container>
+      {/* <Grid container>
         <Grid item xs={12} className={classes.gridItem}>
           <Typography variant="subtitle1" className={classes.typography}>
             {content.fields.title[locale]}
@@ -26,7 +26,7 @@ const Team = props => {
           </Typography>
           <Typography variant="body1">{content.fields.description[locale]}</Typography>
         </Grid>
-      </Grid>
+      </Grid> */}
       <MemberList {...forwardProps} />
     </Container>
   );

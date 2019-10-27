@@ -24,12 +24,12 @@ const Intro = props => {
           </Typography>
         </Grid> */}
         <Grid item xs={12}>
-          <Typography variant="subtitle1" className={classes.typography}>
+          {/* <Typography variant="subtitle1" className={classes.typography}>
             {content.fields.title[locale]}
           </Typography>
           <Typography variant="h5" gutterBottom>
             {content.fields.heading[locale]}
-          </Typography>
+          </Typography> */}
           <Typography variant="body1" gutterBottom>
             {content.fields.body[locale]}
           </Typography>

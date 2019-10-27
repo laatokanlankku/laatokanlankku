@@ -17,7 +17,6 @@ const ServiceListItem = props => {
             </Avatar>
           }
           title={data.title[locale]}
-          subheader={data.subtitle[locale]}
           classes={{
             title: classes.typography,
           }}

@@ -9,9 +9,21 @@ const MemberList = props => {
 
   const content = contentful.items.filter(item => item.sys.contentType.sys.id === 'member');
 
+  const sort = (a, b) => {
+    if (a.fields.order['en-US'] < b.fields.order['en-US']) {
+      return -1;
+    }
+    if (a.fields.order['en-US'] > b.fields.order['en-US']) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const sortedContent = content.sort(sort);
+
   return (
     <Grid container justify="center" spacing={4} className={classes.container}>
-      {content.map(item => (
+      {sortedContent.map(item => (
         <MemberListItem key={item.sys.id} data={item.fields} locale={locale} id={item.sys.id} />
       ))}
     </Grid>

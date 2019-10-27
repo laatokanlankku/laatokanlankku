@@ -73,13 +73,13 @@ const Sidebar = props => {
               <ListItemIcon className={classes.icon}>
                 <Translate />
               </ListItemIcon>
-              <ListItemText>Suomi</ListItemText>
+              <ListItemText>English</ListItemText>
             </ListItem>
-            <ListItem button onClick={() => setLocale('ru-RU')} className={classes.nested}>
+            <ListItem button onClick={() => setLocale('fi-FI')} className={classes.nested}>
               <ListItemIcon className={classes.icon}>
                 <Translate />
               </ListItemIcon>
-              <ListItemText>Русский</ListItemText>
+              <ListItemText>Suomi</ListItemText>
             </ListItem>
           </List>
         </Collapse>

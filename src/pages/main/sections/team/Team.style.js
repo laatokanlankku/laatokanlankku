@@ -1,4 +1,4 @@
-import { themeTimber } from '../../../../constants/colors';
+import { themeTimber, themeGray } from '../../../../constants/colors';
 
 export default theme => ({
   container: {

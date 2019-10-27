@@ -1,10 +1,10 @@
-import { themeTimber } from '../../../../constants/colors';
+import { themeGreen } from '../../../../constants/colors';
 
 export default theme => ({
   typography: {
     fontWeight: 600,
     textTransform: 'uppercase',
-    color: themeTimber,
+    color: themeGreen,
   },
   container: {
     paddingTop: theme.spacing(4),

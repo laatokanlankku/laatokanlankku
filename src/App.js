@@ -7,8 +7,8 @@ import { IntlProvider } from 'react-intl';
 import useContentful from './services/useContentful';
 import Dashboard from './components/dashboard/Dashboard';
 import setLocale from './redux/actions/setLocale';
+import en from './locale/en';
 import fi from './locale/fi';
-import ru from './locale/ru';
 
 // Pages
 import Main from './pages/main/Main';
@@ -28,9 +28,9 @@ const App = props => {
   const getLocaleFile = i18n => {
     switch (i18n) {
       case 'en-US':
+        return en;
+      case 'fi-FI':
         return fi;
-      case 'ru-RU':
-        return ru;
       default:
         break;
     }
