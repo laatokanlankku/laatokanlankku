@@ -9,21 +9,13 @@ const VideoListItem = props => {
   // <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   return (
     <Grid item xs={12} sm={4}>
-      <Card elevation={0} square>
+      <Card elevation={0} square className={classes.card}>
         <CardMedia
           className={classes.media}
           component="iframe"
           src={`https://www.youtube.com/embed/${video.id.videoId}`}
           title="Paella dish"
         />
-        {/* <iframe
-          width="1440"
-          height="762"
-          src={`https://www.youtube.com/embed/${video.id.videoId}`}
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        /> */}
       </Card>
     </Grid>
   );
