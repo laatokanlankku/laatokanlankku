@@ -11,6 +11,7 @@ import Intro from './sections/intro/Intro';
 // import Statistics from './sections/statistics/Statistics';
 import Services from './sections/services/Services';
 import Team from './sections/team/Team';
+import Videos from './sections/videos/Videos';
 
 const Main = props => {
   const { classes, contentful, locale } = props;
@@ -28,6 +29,7 @@ const Main = props => {
       <Services {...sharedProps} />
       <Team {...sharedProps} />
       <Map />
+      <Videos />
       <Footer {...sharedProps} />
     </Grid>
   );

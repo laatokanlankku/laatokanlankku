@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
@@ -12,7 +12,6 @@ import fi from './locale/fi';
 
 // Pages
 import Main from './pages/main/Main';
-import Member from './pages/member/Member';
 
 const App = props => {
   const { locale } = props;
@@ -22,8 +21,6 @@ const App = props => {
     },
   });
   const [contentful, isLoading, isError, request] = useContentful();
-
-  const onEnterHandler = () => window.scrollTo(0, 0);
 
   const getLocaleFile = i18n => {
     switch (i18n) {
@@ -52,11 +49,6 @@ const App = props => {
               <Switch>
                 <Dashboard {...sharedProps}>
                   <Route exact path="/" component={() => <Main {...sharedProps} />} />
-                  {/* <Route
-                  path="/member/:id"
-                  component={() => <Member {...sharedProps} />}
-                  onEnter={() => onEnterHandler()}
-                /> */}
                 </Dashboard>
               </Switch>
             </BrowserRouter>

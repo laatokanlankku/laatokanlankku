@@ -8,7 +8,7 @@ const CertificatesListItem = props => {
   const { classes, data, locale } = props;
   return (
     <a
-      href={data.certificate['en-US'].fields.file['en-US'].url}
+      href={data.certificate['en-US'].fields.file[locale].url}
       target="_blank"
       rel="noopener noreferrer"
       className={classes.link}
