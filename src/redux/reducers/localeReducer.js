@@ -1,5 +1,5 @@
 const initialState = {
-  locale: 'en-US',
+  locale: 'fi-FI',
 };
 
 const localeReducer = (state = initialState, action) => {
